@@ -10,6 +10,7 @@ import java.sql.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import view.Vendor;
 /**
  *
  * @author binta
@@ -223,5 +224,9 @@ public class FnbDao {
         }
         
         return fnbList;
+    }
+
+    public boolean update(Vendor vendorUpdate) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

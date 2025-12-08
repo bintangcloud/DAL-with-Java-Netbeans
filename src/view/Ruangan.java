@@ -26,22 +26,355 @@ public class Ruangan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabelruangan = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        tempatsearch = new javax.swing.JTextField();
+        search = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        tempatnama = new javax.swing.JTextField();
+        tempatid = new javax.swing.JTextField();
+        tambah = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
+        view = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        tempatharga = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.setPreferredSize(new java.awt.Dimension(549, 525));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
+
+        tabelruangan.setBackground(new java.awt.Color(255, 255, 255));
+        tabelruangan.setForeground(new java.awt.Color(0, 0, 0));
+        tabelruangan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "id_ruangan", "nama_ruangan", "harga_per_jam"
+            }
+        ));
+        tabelruangan.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane4.setViewportView(tabelruangan);
+
+        jScrollPane3.setViewportView(jScrollPane4);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 191, 255));
+        jLabel9.setText("DATA RUANGAN");
+
+        tempatsearch.setBackground(new java.awt.Color(204, 204, 204));
+        tempatsearch.setForeground(new java.awt.Color(0, 0, 0));
+        tempatsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tempatsearchActionPerformed(evt);
+            }
+        });
+
+        search.setBackground(new java.awt.Color(0, 191, 255));
+        search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        search.setForeground(new java.awt.Color(255, 255, 255));
+        search.setText("Search");
+        search.setBorderPainted(false);
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Search");
+
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Tabel Ruangan");
+
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Form Input Ruangan");
+
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("id_ruangan");
+
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("nama_ruangan");
+
+        tempatnama.setBackground(new java.awt.Color(204, 204, 204));
+        tempatnama.setForeground(new java.awt.Color(0, 0, 0));
+        tempatnama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tempatnamaActionPerformed(evt);
+            }
+        });
+
+        tempatid.setBackground(new java.awt.Color(204, 204, 204));
+        tempatid.setForeground(new java.awt.Color(0, 0, 0));
+        tempatid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tempatidActionPerformed(evt);
+            }
+        });
+
+        tambah.setBackground(new java.awt.Color(76, 175, 80));
+        tambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tambah.setForeground(new java.awt.Color(255, 255, 255));
+        tambah.setText("Tambah");
+        tambah.setBorderPainted(false);
+        tambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahActionPerformed(evt);
+            }
+        });
+
+        update.setBackground(new java.awt.Color(255, 215, 0));
+        update.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        update.setForeground(new java.awt.Color(255, 255, 255));
+        update.setText("Update");
+        update.setBorderPainted(false);
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
+
+        delete.setBackground(new java.awt.Color(255, 127, 0));
+        delete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        delete.setForeground(new java.awt.Color(255, 255, 255));
+        delete.setText("Delete");
+        delete.setBorderPainted(false);
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
+
+        clear.setBackground(new java.awt.Color(0, 191, 255));
+        clear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        clear.setForeground(new java.awt.Color(255, 255, 255));
+        clear.setText("Clear");
+        clear.setBorderPainted(false);
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
+
+        kembali.setBackground(new java.awt.Color(204, 204, 204));
+        kembali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        kembali.setForeground(new java.awt.Color(0, 0, 0));
+        kembali.setText("Kembali");
+        kembali.setBorderPainted(false);
+        kembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kembaliActionPerformed(evt);
+            }
+        });
+
+        view.setBackground(new java.awt.Color(0, 191, 255));
+        view.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        view.setForeground(new java.awt.Color(255, 255, 255));
+        view.setText("View");
+        view.setBorderPainted(false);
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("harga per jam");
+
+        tempatharga.setBackground(new java.awt.Color(204, 204, 204));
+        tempatharga.setForeground(new java.awt.Color(0, 0, 0));
+        tempatharga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tempathargaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jLabel9))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel10)
+                        .addGap(66, 66, 66)
+                        .addComponent(tempatsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(search)
+                        .addGap(6, 6, 6)
+                        .addComponent(view))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(tempatharga, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(tambah)
+                        .addGap(18, 18, 18)
+                        .addComponent(update)
+                        .addGap(18, 18, 18)
+                        .addComponent(delete)
+                        .addGap(18, 18, 18)
+                        .addComponent(clear))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(460, 460, 460)
+                        .addComponent(kembali))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(31, 31, 31)
+                                .addComponent(tempatid, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tempatnama, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel12))))
+                .addGap(7, 7, 7))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel9)
+                .addGap(17, 17, 17)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel10))
+                    .addComponent(tempatsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(search)
+                    .addComponent(view))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel11)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel12)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tempatid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tempatnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tempatharga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tambah)
+                    .addComponent(update)
+                    .addComponent(delete)
+                    .addComponent(clear))
+                .addGap(7, 7, 7)
+                .addComponent(kembali))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tempatsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempatsearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempatsearchActionPerformed
+
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+       
+    }//GEN-LAST:event_searchActionPerformed
+
+    private void tempatnamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempatnamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempatnamaActionPerformed
+
+    private void tempatidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempatidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempatidActionPerformed
+
+    private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
+        
+    }//GEN-LAST:event_tambahActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        
+    }//GEN-LAST:event_updateActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        tempatid.setText("");
+        tempatnama.setText("");
+
+        // Opsional: Kembalikan tabel ke posisi default (load semua data)
+        tampilkanData();
+        tempatid.requestFocus(); // Arahkan kursor kembali ke kolom ID
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
+        MainMenu mnu = new MainMenu();
+        mnu.setVisible(true);
+
+        // TUTUP Vendor
+        this.dispose();
+    }//GEN-LAST:event_kembaliActionPerformed
+
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        tampilkanData();
+    }//GEN-LAST:event_viewActionPerformed
+
+    private void tempathargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempathargaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempathargaActionPerformed
+private void tampilkanData() {
+   
+}
     /**
      * @param args the command line arguments
      */
@@ -78,5 +411,28 @@ public class Ruangan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clear;
+    private javax.swing.JButton delete;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JButton kembali;
+    private javax.swing.JButton search;
+    private javax.swing.JTable tabelruangan;
+    private javax.swing.JButton tambah;
+    private javax.swing.JTextField tempatharga;
+    private javax.swing.JTextField tempatid;
+    private javax.swing.JTextField tempatnama;
+    private javax.swing.JTextField tempatsearch;
+    private javax.swing.JButton update;
+    private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
 }
