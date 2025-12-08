@@ -15,8 +15,7 @@ import java.util.List;
  */
 public class RuanganDao {
 
-    public RuanganDao(Connection connection) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public RuanganDao() {
     }
     // INSERT
     public boolean insert(Ruangan ruangan) {
