@@ -55,9 +55,11 @@ public class Ruangan extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.setPreferredSize(new java.awt.Dimension(549, 525));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -79,9 +81,12 @@ public class Ruangan extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(jScrollPane4);
 
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 147, -1, 173));
+
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 191, 255));
         jLabel9.setText("DATA RUANGAN");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         tempatsearch.setBackground(new java.awt.Color(204, 204, 204));
         tempatsearch.setForeground(new java.awt.Color(0, 0, 0));
@@ -90,6 +95,7 @@ public class Ruangan extends javax.swing.JFrame {
                 tempatsearchActionPerformed(evt);
             }
         });
+        jPanel3.add(tempatsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 72, 177, -1));
 
         search.setBackground(new java.awt.Color(0, 191, 255));
         search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -101,21 +107,27 @@ public class Ruangan extends javax.swing.JFrame {
                 searchActionPerformed(evt);
             }
         });
+        jPanel3.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 72, -1, -1));
 
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Search");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 75, -1, -1));
 
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Tabel Ruangan");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 119, -1, -1));
 
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Form Input Ruangan");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 332, -1, -1));
 
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("id_ruangan");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 363, -1, -1));
 
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("nama_ruangan");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 393, -1, -1));
 
         tempatnama.setBackground(new java.awt.Color(204, 204, 204));
         tempatnama.setForeground(new java.awt.Color(0, 0, 0));
@@ -124,6 +136,7 @@ public class Ruangan extends javax.swing.JFrame {
                 tempatnamaActionPerformed(evt);
             }
         });
+        jPanel3.add(tempatnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 177, -1));
 
         tempatid.setBackground(new java.awt.Color(204, 204, 204));
         tempatid.setForeground(new java.awt.Color(0, 0, 0));
@@ -132,6 +145,7 @@ public class Ruangan extends javax.swing.JFrame {
                 tempatidActionPerformed(evt);
             }
         });
+        jPanel3.add(tempatid, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 177, -1));
 
         tambah.setBackground(new java.awt.Color(76, 175, 80));
         tambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -143,6 +157,7 @@ public class Ruangan extends javax.swing.JFrame {
                 tambahActionPerformed(evt);
             }
         });
+        jPanel3.add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 460, -1, -1));
 
         update.setBackground(new java.awt.Color(255, 215, 0));
         update.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -154,6 +169,7 @@ public class Ruangan extends javax.swing.JFrame {
                 updateActionPerformed(evt);
             }
         });
+        jPanel3.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 460, -1, -1));
 
         delete.setBackground(new java.awt.Color(255, 127, 0));
         delete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -165,6 +181,7 @@ public class Ruangan extends javax.swing.JFrame {
                 deleteActionPerformed(evt);
             }
         });
+        jPanel3.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 460, -1, -1));
 
         clear.setBackground(new java.awt.Color(0, 191, 255));
         clear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -176,6 +193,7 @@ public class Ruangan extends javax.swing.JFrame {
                 clearActionPerformed(evt);
             }
         });
+        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 460, -1, -1));
 
         kembali.setBackground(new java.awt.Color(204, 204, 204));
         kembali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -187,6 +205,7 @@ public class Ruangan extends javax.swing.JFrame {
                 kembaliActionPerformed(evt);
             }
         });
+        jPanel3.add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
 
         view.setBackground(new java.awt.Color(0, 191, 255));
         view.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -198,9 +217,11 @@ public class Ruangan extends javax.swing.JFrame {
                 viewActionPerformed(evt);
             }
         });
+        jPanel3.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 72, -1, -1));
 
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("harga per jam");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 423, -1, -1));
 
         tempatharga.setBackground(new java.awt.Color(204, 204, 204));
         tempatharga.setForeground(new java.awt.Color(0, 0, 0));
@@ -209,102 +230,7 @@ public class Ruangan extends javax.swing.JFrame {
                 tempathargaActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(jLabel9))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jLabel10)
-                        .addGap(66, 66, 66)
-                        .addComponent(tempatsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(search)
-                        .addGap(6, 6, 6)
-                        .addComponent(view))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jLabel11))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jLabel16)
-                        .addGap(18, 18, 18)
-                        .addComponent(tempatharga, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(tambah)
-                        .addGap(18, 18, 18)
-                        .addComponent(update)
-                        .addGap(18, 18, 18)
-                        .addComponent(delete)
-                        .addGap(18, 18, 18)
-                        .addComponent(clear))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(460, 460, 460)
-                        .addComponent(kembali))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(31, 31, 31)
-                                .addComponent(tempatid, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tempatnama, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel12))))
-                .addGap(7, 7, 7))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel9)
-                .addGap(17, 17, 17)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel10))
-                    .addComponent(tempatsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search)
-                    .addComponent(view))
-                .addGap(24, 24, 24)
-                .addComponent(jLabel11)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel12)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tempatid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tempatnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tempatharga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tambah)
-                    .addComponent(update)
-                    .addComponent(delete)
-                    .addComponent(clear))
-                .addGap(7, 7, 7)
-                .addComponent(kembali))
-        );
+        jPanel3.add(tempatharga, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 177, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
