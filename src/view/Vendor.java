@@ -15,7 +15,7 @@ public class Vendor extends javax.swing.JFrame {
 
     private String idVendor;
     private String namaVendor;
-    private FnB vendorUpdate;
+    private Vendor vendorUpdate;
 
     /**
      * Creates new form Vendor
