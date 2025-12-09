@@ -127,7 +127,7 @@ public class Ruangan extends javax.swing.JFrame {
 
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("nama_ruangan");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 393, -1, -1));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, 20));
 
         tempatnama.setBackground(new java.awt.Color(204, 204, 204));
         tempatnama.setForeground(new java.awt.Color(0, 0, 0));
@@ -150,7 +150,7 @@ public class Ruangan extends javax.swing.JFrame {
         tambah.setBackground(new java.awt.Color(76, 175, 80));
         tambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tambah.setForeground(new java.awt.Color(255, 255, 255));
-        tambah.setText("Tambah");
+        tambah.setText("Insert");
         tambah.setBorderPainted(false);
         tambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +251,29 @@ public class Ruangan extends javax.swing.JFrame {
     }//GEN-LAST:event_tempatsearchActionPerformed
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
-       
+String keyword = tempatsearch.getText(); 
+
+    dao.RuanganDao dao = new dao.RuanganDao();
+    
+    // Panggil method SEARCH dari DAO
+    java.util.List<model.Ruangan> hasilPencarian = dao.searchByName(keyword);
+
+    // --- Masukkan hasil ke JTable (Logika mirip tampilkanData) ---
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tabelruangan.getModel();
+    model.setRowCount(0); // Kosongkan tabel dulu
+
+    if (hasilPencarian.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Data tidak ditemukan!");
+    } else {
+        for (model.Ruangan f : hasilPencarian) {
+            Object[] baris = {
+                f.getIdRuangan(),
+                f.getNamaRuangan(),
+                f.getHargaPerJam()
+            };
+            model.addRow(baris);
+        }
+    }       
     }//GEN-LAST:event_searchActionPerformed
 
     private void tempatnamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempatnamaActionPerformed

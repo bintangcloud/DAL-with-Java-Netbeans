@@ -34,8 +34,8 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         fnb = new javax.swing.JButton();
         tombolvendor = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        rombolruangan = new javax.swing.JButton();
+        tombolpelanggan = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -67,6 +67,11 @@ public class MainMenu extends javax.swing.JFrame {
         jButton3.setText("Daftar Kasir");
         jButton3.setBorderPainted(false);
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton3);
         jButton3.setBounds(280, 280, 234, 80);
 
@@ -133,26 +138,36 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.add(tombolvendor);
         tombolvendor.setBounds(280, 80, 234, 80);
 
-        jButton10.setBackground(new java.awt.Color(76, 175, 80));
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/home-office_2904550.png"))); // NOI18N
-        jButton10.setText("Ruangan");
-        jButton10.setAlignmentX(0.5F);
-        jButton10.setBorderPainted(false);
-        jButton10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(jButton10);
-        jButton10.setBounds(30, 180, 230, 80);
+        rombolruangan.setBackground(new java.awt.Color(76, 175, 80));
+        rombolruangan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        rombolruangan.setForeground(new java.awt.Color(255, 255, 255));
+        rombolruangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/home-office_2904550.png"))); // NOI18N
+        rombolruangan.setText("Ruangan");
+        rombolruangan.setAlignmentX(0.5F);
+        rombolruangan.setBorderPainted(false);
+        rombolruangan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        rombolruangan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rombolruanganActionPerformed(evt);
+            }
+        });
+        jPanel2.add(rombolruangan);
+        rombolruangan.setBounds(30, 180, 230, 80);
 
-        jButton6.setBackground(new java.awt.Color(255, 215, 0));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/ancestors_3597742.png"))); // NOI18N
-        jButton6.setText("Pelanggan");
-        jButton6.setBorderPainted(false);
-        jButton6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(jButton6);
-        jButton6.setBounds(280, 180, 234, 80);
+        tombolpelanggan.setBackground(new java.awt.Color(255, 215, 0));
+        tombolpelanggan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tombolpelanggan.setForeground(new java.awt.Color(255, 255, 255));
+        tombolpelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/ancestors_3597742.png"))); // NOI18N
+        tombolpelanggan.setText("Pelanggan");
+        tombolpelanggan.setBorderPainted(false);
+        tombolpelanggan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        tombolpelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tombolpelangganActionPerformed(evt);
+            }
+        });
+        jPanel2.add(tombolpelanggan);
+        tombolpelanggan.setBounds(280, 180, 234, 80);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -203,7 +218,11 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        Pembayaran bayar = new Pembayaran();
+        fnb.setVisible(true);
+
+        // TUTUP Menu
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -214,7 +233,7 @@ public class MainMenu extends javax.swing.JFrame {
        FnB fnb = new FnB();
         fnb.setVisible(true);
 
-        // TUTUP LOGIN
+        // TUTUP Menu
         this.dispose();
     }//GEN-LAST:event_fnbActionPerformed
 
@@ -222,9 +241,29 @@ public class MainMenu extends javax.swing.JFrame {
        Vendor vnd = new Vendor();
         vnd.setVisible(true);
 
-        // TUTUP LOGIN
+        // TUTUP Menu
         this.dispose();
     }//GEN-LAST:event_tombolvendorActionPerformed
+
+    private void rombolruanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rombolruanganActionPerformed
+        Ruangan ruang = new Ruangan();
+        ruang.setVisible(true);
+
+        // TUTUP Menu
+        this.dispose();
+    }//GEN-LAST:event_rombolruanganActionPerformed
+
+    private void tombolpelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolpelangganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tombolpelangganActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Kasir ksr = new Kasir();
+        ksr.setVisible(true);
+
+        // TUTUP LOGIN
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,17 +302,17 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton fnb;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton rombolruangan;
+    private javax.swing.JButton tombolpelanggan;
     private javax.swing.JButton tombolvendor;
     // End of variables declaration//GEN-END:variables
 }

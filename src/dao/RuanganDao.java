@@ -77,7 +77,6 @@ public class RuanganDao {
                 ruangan.setNamaRuangan(rs.getString("nama_ruangan"));
                 ruangan.setHargaPerJam(rs.getBigDecimal("harga_per_jam"));
             }
-            
             rs.close();
             
         } catch (SQLException e) {
@@ -121,6 +120,33 @@ public class RuanganDao {
             System.err.println("Error deleting ruangan: " + e.getMessage());
             return false;
         }
+    }
+    // SEARCH BY NAME
+    public List<Ruangan> searchByName(String keyword) {
+        List<Ruangan> RuanganList = new ArrayList<>();
+        String sql = "SELECT * FROM tabel_ruangan WHERE nama_ruangan LIKE ? ORDER BY nama_ruangan";
+        
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, "%" + keyword + "%");
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                Ruangan ruangan = new Ruangan();
+                ruangan.setIdRuangan(rs.getString("id_ruangan"));
+                ruangan.setNamaRuangan(rs.getString("nama_ruangan"));
+                ruangan.setHargaPerJam(rs.getBigDecimal("harga_per_jam"));
+                RuanganList.add(ruangan);
+            }
+            
+            rs.close();
+            
+        } catch (SQLException e) {
+            System.err.println("Error searching Ruangan: " + e.getMessage());
+        }
+        
+        return RuanganList;
     }
     
     // GET BY PRICE RANGE

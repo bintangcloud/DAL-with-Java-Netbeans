@@ -62,4 +62,5 @@ public class Ruangan {
     public String toString() {
         return idRuangan + " - " + namaRuangan + " (Rp " + hargaPerJam + "/jam)";
     }
+
 }
