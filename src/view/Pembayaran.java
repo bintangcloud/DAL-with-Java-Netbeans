@@ -4,6 +4,8 @@
  */
 package view;
 
+import dao.PembayaranDao;
+
 /**
  *
  * @author chee
@@ -30,7 +32,7 @@ public class Pembayaran extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tabelruangan = new javax.swing.JTable();
+        tabelpembayaran = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         tempatsearch = new javax.swing.JTextField();
         search = new javax.swing.JButton();
@@ -61,9 +63,9 @@ public class Pembayaran extends javax.swing.JFrame {
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabelruangan.setBackground(new java.awt.Color(255, 255, 255));
-        tabelruangan.setForeground(new java.awt.Color(0, 0, 0));
-        tabelruangan.setModel(new javax.swing.table.DefaultTableModel(
+        tabelpembayaran.setBackground(new java.awt.Color(255, 255, 255));
+        tabelpembayaran.setForeground(new java.awt.Color(0, 0, 0));
+        tabelpembayaran.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -71,11 +73,11 @@ public class Pembayaran extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "id_pembayaran", "metode_pembayaran"
+                "id_pembayaran", "jenis_pembayaran"
             }
         ));
-        tabelruangan.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane4.setViewportView(tabelruangan);
+        tabelpembayaran.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane4.setViewportView(tabelpembayaran);
 
         jScrollPane3.setViewportView(jScrollPane4);
 
@@ -93,7 +95,7 @@ public class Pembayaran extends javax.swing.JFrame {
                 tempatsearchActionPerformed(evt);
             }
         });
-        jPanel3.add(tempatsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 72, 177, -1));
+        jPanel3.add(tempatsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 177, -1));
 
         search.setBackground(new java.awt.Color(0, 191, 255));
         search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -124,7 +126,7 @@ public class Pembayaran extends javax.swing.JFrame {
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
 
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("metode");
+        jLabel15.setText("jenis pembayaran");
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, 20));
 
         tempatnama.setBackground(new java.awt.Color(204, 204, 204));
@@ -134,7 +136,7 @@ public class Pembayaran extends javax.swing.JFrame {
                 tempatnamaActionPerformed(evt);
             }
         });
-        jPanel3.add(tempatnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 177, -1));
+        jPanel3.add(tempatnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 177, -1));
 
         tempatid.setBackground(new java.awt.Color(204, 204, 204));
         tempatid.setForeground(new java.awt.Color(0, 0, 0));
@@ -143,7 +145,7 @@ public class Pembayaran extends javax.swing.JFrame {
                 tempatidActionPerformed(evt);
             }
         });
-        jPanel3.add(tempatid, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 177, -1));
+        jPanel3.add(tempatid, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 177, -1));
 
         tambah.setBackground(new java.awt.Color(76, 175, 80));
         tambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -236,7 +238,29 @@ public class Pembayaran extends javax.swing.JFrame {
     }//GEN-LAST:event_tempatsearchActionPerformed
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        
+    String keyword = tempatsearch.getText(); 
 
+    dao.PembayaranDao dao = new dao.PembayaranDao();
+    
+    // Panggil method SEARCH dari DAO
+    java.util.List<model.Pembayaran> hasilPencarian = dao.searchByName(keyword);
+
+    // --- Masukkan hasil ke JTable (Logika mirip tampilkanData) ---
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tabelpembayaran.getModel();
+    model.setRowCount(0); // Kosongkan tabel dulu
+
+    if (hasilPencarian.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Data tidak ditemukan!");
+    } else {
+        for (model.Pembayaran f : hasilPencarian) {
+            Object[] baris = {
+                f.getIdPembayaran(),
+                f.getJenisPembayaran(),
+            };
+            model.addRow(baris);
+        }
+    }
     }//GEN-LAST:event_searchActionPerformed
 
     private void tempatnamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempatnamaActionPerformed
@@ -248,15 +272,139 @@ public class Pembayaran extends javax.swing.JFrame {
     }//GEN-LAST:event_tempatidActionPerformed
 
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
+         // 1. Ambil data dari Inputan (Text Field)
+        String idPembayaran = tempatid.getText();
+        String jenisPembayaran = tempatnama.getText();
 
+    // 2. Validasi sederhana (Cek kosong atau tidak)
+    if (idPembayaran.isEmpty() || jenisPembayaran.isEmpty() ) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Mohon lengkapi semua data!");
+        return; // Berhenti jika data kosong
+    }
+
+    try {
+        model.Pembayaran pby = new model.Pembayaran();
+        pby.setIdPembayaran(idPembayaran);
+        pby.setJenisPembayaran(jenisPembayaran);
+        
+        //Panggil DAO untuk Insert
+        PembayaranDao dao = new PembayaranDao(); // Pastikan constructor FnbDao sudah diperbaiki (lihat poin 1)
+        boolean sukses = dao.insert(pby);
+
+        // 6. Cek Hasil dan Beri Pesan ke User
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Disimpan!");
+            
+            tampilkanData();
+            
+            // Opsi: Kosongkan text field setelah simpan
+            tempatid.setText("");
+            tempatnama.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Menyimpan Data.");
+        }
+
+    } catch (NumberFormatException e) {
+        // Error handling jika user memasukkan huruf di kolom harga
+        javax.swing.JOptionPane.showMessageDialog(this, "Harga harus berupa angka!");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Terjadi Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_tambahActionPerformed
 
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+    private void tampilkanData() {
+    // 1. Siapkan Model Tabel
+    // Pastikan nama variabel tabelmu sesuai (misal: jTable1 atau tblData)
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tabelpembayaran.getModel();
+    
+    // 2. Kosongkan tabel dulu agar tidak dobel saat direfresh
+    model.setRowCount(0);
 
+    // 3. Ambil data dari Database pakai DAO
+    dao.PembayaranDao dao = new dao.PembayaranDao();
+    java.util.List<model.Pembayaran> listPembayaran = dao.getAll();
+
+    // 4. Masukkan data ke Tabel
+    for (model.Pembayaran f : listPembayaran) {
+        Object[] baris = {
+            f.getIdPembayaran(),
+            f.getJenisPembayaran(),
+        };
+        model.addRow(baris);
+    }
+}
+    
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        String idPembayaran = tempatid.getText();
+        String jenisPembayaran = tempatnama.getText();
+
+    // 2. Validasi (ID tidak boleh kosong karena itu kuncinya)
+    if (idPembayaran.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Pilih data yang akan diedit atau isi ID!");
+        return;
+    }
+
+    try {
+
+        model.Pembayaran pembUp = new model.Pembayaran();
+        pembUp.setIdPembayaran(idPembayaran);
+        pembUp.setJenisPembayaran(jenisPembayaran);
+
+        dao.PembayaranDao dao = new dao.PembayaranDao();
+        
+        // 3. Panggil method UPDATE
+        boolean sukses = dao.update(pembUp);
+
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Diupdate!");
+            tampilkanData(); // Refresh tabel
+            
+            // Bersihkan form
+            tempatid.setText("");
+            tempatnama.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Mengupdate Data.");
+        }
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Harga harus angka!");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_updateActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        String idPembayaran = tempatid.getText();
 
+    // 1. Validasi ID
+    if (idPembayaran.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Pilih data yang akan dihapus atau isi ID!");
+        return;
+    }
+
+    // 2. Konfirmasi User (Yes/No)
+    int confirm = javax.swing.JOptionPane.showConfirmDialog(this, 
+            "Yakin ingin menghapus data ID: " + idPembayaran + "?", 
+            "Konfirmasi Hapus", 
+            javax.swing.JOptionPane.YES_NO_OPTION);
+
+    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+        dao.PembayaranDao dao = new dao.PembayaranDao();
+        
+        // 3. Panggil method DELETE
+        boolean sukses = dao.delete(idPembayaran);
+
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus!");
+            tampilkanData(); // Refresh tabel
+            
+            // Bersihkan form
+            tempatid.setText("");
+            tempatnama.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Menghapus Data.");
+        }
+    }
     }//GEN-LAST:event_deleteActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
@@ -277,7 +425,7 @@ public class Pembayaran extends javax.swing.JFrame {
     }//GEN-LAST:event_kembaliActionPerformed
 
     private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
-        //tampilkanData();
+        tampilkanData();
     }//GEN-LAST:event_viewActionPerformed
 
     /**
@@ -330,7 +478,7 @@ public class Pembayaran extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton kembali;
     private javax.swing.JButton search;
-    private javax.swing.JTable tabelruangan;
+    private javax.swing.JTable tabelpembayaran;
     private javax.swing.JButton tambah;
     private javax.swing.JTextField tempatid;
     private javax.swing.JTextField tempatnama;

@@ -14,8 +14,7 @@ import java.util.List;
  */
 public class KasirDao {
 
-    public KasirDao(Connection connection) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+    public KasirDao() {
     }
      // CREATE - Insert new kasir
     public boolean insert(Kasir kasir) {

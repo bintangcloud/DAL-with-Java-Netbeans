@@ -63,4 +63,8 @@ public class Ruangan {
         return idRuangan + " - " + namaRuangan + " (Rp " + hargaPerJam + "/jam)";
     }
 
+    public void setHargaPerJam(String hargaString) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

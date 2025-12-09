@@ -30,7 +30,7 @@ public class Kasir extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tabelruangan = new javax.swing.JTable();
+        tabelkasir = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         tempatsearch = new javax.swing.JTextField();
         search = new javax.swing.JButton();
@@ -61,9 +61,9 @@ public class Kasir extends javax.swing.JFrame {
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabelruangan.setBackground(new java.awt.Color(255, 255, 255));
-        tabelruangan.setForeground(new java.awt.Color(0, 0, 0));
-        tabelruangan.setModel(new javax.swing.table.DefaultTableModel(
+        tabelkasir.setBackground(new java.awt.Color(255, 255, 255));
+        tabelkasir.setForeground(new java.awt.Color(0, 0, 0));
+        tabelkasir.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -74,8 +74,8 @@ public class Kasir extends javax.swing.JFrame {
                 "id_kasir", "nama_kasir"
             }
         ));
-        tabelruangan.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane4.setViewportView(tabelruangan);
+        tabelkasir.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane4.setViewportView(tabelkasir);
 
         jScrollPane3.setViewportView(jScrollPane4);
 
@@ -236,7 +236,28 @@ public class Kasir extends javax.swing.JFrame {
     }//GEN-LAST:event_tempatsearchActionPerformed
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+    String keyword = tempatsearch.getText(); 
 
+    dao.KasirDao dao = new dao.KasirDao();
+    
+    // Panggil method SEARCH dari DAO
+    java.util.List<model.Kasir> hasilPencarian = dao.searchByName(keyword);
+
+    // --- Masukkan hasil ke JTable (Logika mirip tampilkanData) ---
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tabelkasir.getModel();
+    model.setRowCount(0); // Kosongkan tabel dulu
+
+    if (hasilPencarian.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Data tidak ditemukan!");
+    } else {
+        for (model.Kasir f : hasilPencarian) {
+            Object[] baris = {
+                f.getIdKasir(),
+                f.getNamaKasir(),
+            };
+            model.addRow(baris);
+        }
+    }
     }//GEN-LAST:event_searchActionPerformed
 
     private void tempatnamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempatnamaActionPerformed
@@ -256,9 +277,62 @@ public class Kasir extends javax.swing.JFrame {
     }//GEN-LAST:event_updateActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        String idKasir = tempatid.getText();
 
+    // 1. Validasi ID
+    if (idKasir.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Pilih data yang akan dihapus atau isi ID!");
+        return;
+    }
+
+    // 2. Konfirmasi User (Yes/No)
+    int confirm = javax.swing.JOptionPane.showConfirmDialog(this, 
+            "Yakin ingin menghapus data ID: " + idKasir + "?", 
+            "Konfirmasi Hapus", 
+            javax.swing.JOptionPane.YES_NO_OPTION);
+
+    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+        dao.FnbDao dao = new dao.FnbDao();
+        
+        // 3. Panggil method DELETE
+        boolean sukses = dao.delete(idKasir);
+
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus!");
+            tampilkanData(); // Refresh tabel
+            
+            // Bersihkan form
+            tempatid.setText("");
+            tempatnama.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Menghapus Data.");
+        }
+    }
     }//GEN-LAST:event_deleteActionPerformed
 
+    private void tampilkanData() {
+    // 1. Siapkan Model Tabel
+    // Pastikan nama variabel tabelmu sesuai (misal: jTable1 atau tblData)
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tabelkasir.getModel();
+    
+    // 2. Kosongkan tabel dulu agar tidak dobel saat direfresh
+    model.setRowCount(0);
+
+    // 3. Ambil data dari Database pakai DAO
+    dao.KasirDao dao = new dao.KasirDao();
+    java.util.List<model.Kasir> listKasir = dao.getAll();
+
+    // 4. Masukkan data ke Tabel
+    for (model.Kasir f : listKasir) {
+        Object[] baris = {
+            f.getIdKasir(),
+            f.getNamaKasir(),
+            // Tambahkan nama vendor jika ada di model
+        };
+        model.addRow(baris);
+    }
+}
+    
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         tempatid.setText("");
         tempatnama.setText("");
@@ -330,7 +404,7 @@ public class Kasir extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton kembali;
     private javax.swing.JButton search;
-    private javax.swing.JTable tabelruangan;
+    private javax.swing.JTable tabelkasir;
     private javax.swing.JButton tambah;
     private javax.swing.JTextField tempatid;
     private javax.swing.JTextField tempatnama;

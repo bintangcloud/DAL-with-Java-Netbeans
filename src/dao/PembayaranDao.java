@@ -18,6 +18,10 @@ public class PembayaranDao {
     public PembayaranDao(Connection connection) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
+
+    public PembayaranDao() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     // INSERT
     public boolean insert(Pembayaran pembayaran) {
         String sql = "INSERT INTO tabel_pembayaran (id_pembayaran, jenis_pembayaran) VALUES (?, ?)";
@@ -118,5 +122,9 @@ public class PembayaranDao {
             System.err.println("Error deleting pembayaran: " + e.getMessage());
             return false;
         }
+    }
+
+    public List<Pembayaran> searchByName(String keyword) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

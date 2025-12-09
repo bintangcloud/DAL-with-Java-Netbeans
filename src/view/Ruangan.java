@@ -4,11 +4,16 @@
  */
 package view;
 
+import dao.RuanganDao;
+import java.math.BigDecimal;
+
 /**
  *
  * @author binta
  */
 public class Ruangan extends javax.swing.JFrame {
+
+    private BigDecimal hargaPerJam;
 
     /**
      * Creates new form Ruangan
@@ -285,15 +290,130 @@ String keyword = tempatsearch.getText();
     }//GEN-LAST:event_tempatidActionPerformed
 
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
-        
+       // 1. Ambil data dari Inputan (Text Field)
+    String idRuangan = tempatid.getText();
+    String namaRuangan = tempatnama.getText();
+    String hargaString = tempatharga.getText();
+
+    // 2. Validasi sederhana (Cek kosong atau tidak)
+    if (idRuangan.isEmpty() || namaRuangan.isEmpty() || hargaString.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Mohon lengkapi semua data!");
+        return; // Berhenti jika data kosong
+    }
+
+    try {
+        // 3. Konversi Harga dari String ke BigDecimal
+        // (Wajib karena di database tipe datanya Decimal/BigDecimal)
+        java.math.BigDecimal harga = new java.math.BigDecimal(hargaString);
+
+        // 4. Masukkan data ke dalam Object Model (FnB)
+        model.Ruangan ruang = new model.Ruangan();
+        ruang.setIdRuangan(idRuangan);
+        ruang.setNamaRuangan(namaRuangan);
+        ruang.setHargaPerJam(hargaString);
+
+        // 5. Panggil DAO untuk Insert
+        RuanganDao dao = new RuanganDao(); // Pastikan constructor FnbDao sudah diperbaiki (lihat poin 1)
+        boolean sukses = dao.insert(ruang);
+
+        // 6. Cek Hasil dan Beri Pesan ke User
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Disimpan!");
+            
+            tampilkanData();
+            
+            // Opsi: Kosongkan text field setelah simpan
+            tempatid.setText("");
+            tempatnama.setText("");
+            tempatharga.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Menyimpan Data.");
+        }
+
+    } catch (NumberFormatException e) {
+        // Error handling jika user memasukkan huruf di kolom harga
+        javax.swing.JOptionPane.showMessageDialog(this, "Harga harus berupa angka!");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Terjadi Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_tambahActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        String idRuangan = tempatid.getText();
+        String namaRuangan = tempatnama.getText();
+        String hargaString = tempatharga.getText();
+
+    // 2. Validasi (ID tidak boleh kosong karena itu kuncinya)
+    if (idRuangan.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Pilih data yang akan diedit atau isi ID!");
+        return;
+    }
+
+    try {
+        java.math.BigDecimal harga = new java.math.BigDecimal(hargaString);
+
+        model.Ruangan ruang = new model.Ruangan();
+        ruang.setIdRuangan(idRuangan);
+        ruang.setNamaRuangan(namaRuangan);
+        ruang.setHargaPerJam(hargaPerJam);
+
+        dao.RuanganDao dao = new dao.RuanganDao();
         
+        // 3. Panggil method UPDATE
+        boolean sukses = dao.update(ruang);
+
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Diupdate!");
+            tampilkanData(); // Refresh tabel
+            
+            // Bersihkan form
+            tempatid.setText("");
+            tempatnama.setText("");
+            tempatharga.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Mengupdate Data.");
+        }
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Harga harus angka!");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_updateActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        String idRuangan = tempatid.getText();
+
+    // 1. Validasi ID
+    if (idRuangan.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Pilih data yang akan dihapus atau isi ID!");
+        return;
+    }
+
+    // 2. Konfirmasi User (Yes/No)
+    int confirm = javax.swing.JOptionPane.showConfirmDialog(this, 
+            "Yakin ingin menghapus data ID: " + idRuangan + "?", 
+            "Konfirmasi Hapus", 
+            javax.swing.JOptionPane.YES_NO_OPTION);
+
+    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+        dao.RuanganDao dao = new dao.RuanganDao();
         
+        // 3. Panggil method DELETE
+        boolean sukses = dao.delete(idRuangan);
+
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus!");
+            tampilkanData(); // Refresh tabel
+            
+            // Bersihkan form
+            tempatid.setText("");
+            tempatnama.setText("");
+            tempatharga.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Menghapus Data.");
+        }
+    }
     }//GEN-LAST:event_deleteActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
