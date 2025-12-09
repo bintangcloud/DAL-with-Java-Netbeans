@@ -29,7 +29,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        tomboltransaksi = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         fnb = new javax.swing.JButton();
@@ -75,21 +75,21 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.add(jButton3);
         jButton3.setBounds(280, 280, 234, 80);
 
-        jButton4.setBackground(new java.awt.Color(76, 175, 80));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/cash-register_4437664 (1).png"))); // NOI18N
-        jButton4.setText("Transaksi");
-        jButton4.setAlignmentX(0.5F);
-        jButton4.setBorderPainted(false);
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        tomboltransaksi.setBackground(new java.awt.Color(76, 175, 80));
+        tomboltransaksi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tomboltransaksi.setForeground(new java.awt.Color(255, 255, 255));
+        tomboltransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/cash-register_4437664 (1).png"))); // NOI18N
+        tomboltransaksi.setText("Transaksi");
+        tomboltransaksi.setAlignmentX(0.5F);
+        tomboltransaksi.setBorderPainted(false);
+        tomboltransaksi.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        tomboltransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                tomboltransaksiActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4);
-        jButton4.setBounds(30, 380, 230, 80);
+        jPanel2.add(tomboltransaksi);
+        tomboltransaksi.setBounds(30, 380, 230, 80);
 
         jButton5.setBackground(new java.awt.Color(255, 215, 0));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -225,9 +225,13 @@ public class MainMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void tomboltransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tomboltransaksiActionPerformed
+        Transaksi trs = new Transaksi();
+        fnb.setVisible(true);
+
+        // TUTUP Menu
+        this.dispose();
+    }//GEN-LAST:event_tomboltransaksiActionPerformed
 
     private void fnbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnbActionPerformed
        FnB fnb = new FnB();
@@ -304,7 +308,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton fnb;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -313,6 +316,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton rombolruangan;
     private javax.swing.JButton tombolpelanggan;
+    private javax.swing.JButton tomboltransaksi;
     private javax.swing.JButton tombolvendor;
     // End of variables declaration//GEN-END:variables
 }

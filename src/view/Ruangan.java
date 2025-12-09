@@ -440,9 +440,30 @@ String keyword = tempatsearch.getText();
     private void tempathargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempathargaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tempathargaActionPerformed
-private void tampilkanData() {
-   
+
+   private void tampilkanData() {
+    // 1. Siapkan Model Tabel
+    // Pastikan nama variabel tabelmu sesuai (misal: jTable1 atau tblData)
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tabelruangan.getModel();
+    
+    // 2. Kosongkan tabel dulu agar tidak dobel saat direfresh
+    model.setRowCount(0);
+
+    // 3. Ambil data dari Database pakai DAO
+    dao.RuanganDao dao = new dao.RuanganDao();
+    java.util.List<model.Ruangan> ListRuangan = dao.getAll();
+
+    // 4. Masukkan data ke Tabel
+    for (model.Ruangan f : ListRuangan) {
+        Object[] baris = {
+            f.getIdRuangan(),
+            f.getNamaRuangan(),
+            // Tambahkan nama vendor jika ada di model
+        };
+        model.addRow(baris);
+    }
 }
+
     /**
      * @param args the command line arguments
      */
