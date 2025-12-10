@@ -30,7 +30,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         tomboltransaksi = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        laporanharian = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         fnb = new javax.swing.JButton();
         tombolvendor = new javax.swing.JButton();
@@ -91,20 +91,20 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.add(tomboltransaksi);
         tomboltransaksi.setBounds(30, 380, 230, 80);
 
-        jButton5.setBackground(new java.awt.Color(255, 215, 0));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/financial-report_10815199.png"))); // NOI18N
-        jButton5.setText("Laporan Harian");
-        jButton5.setBorderPainted(false);
-        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        laporanharian.setBackground(new java.awt.Color(255, 215, 0));
+        laporanharian.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        laporanharian.setForeground(new java.awt.Color(255, 255, 255));
+        laporanharian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/financial-report_10815199.png"))); // NOI18N
+        laporanharian.setText("Laporan Harian");
+        laporanharian.setBorderPainted(false);
+        laporanharian.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        laporanharian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                laporanharianActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton5);
-        jButton5.setBounds(280, 380, 234, 80);
+        jPanel2.add(laporanharian);
+        laporanharian.setBounds(280, 380, 234, 80);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 170, 0));
@@ -224,7 +224,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Pembayaran bayar = new Pembayaran();
-        fnb.setVisible(true);
+        bayar.setVisible(true);
 
         // TUTUP Menu
         this.dispose();
@@ -232,7 +232,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void tomboltransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tomboltransaksiActionPerformed
         Transaksi trs = new Transaksi();
-        fnb.setVisible(true);
+        trs.setVisible(true);
 
         // TUTUP Menu
         this.dispose();
@@ -263,7 +263,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_rombolruanganActionPerformed
 
     private void tombolpelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolpelangganActionPerformed
-        // TODO add your handling code here:
+       Pelanggan plg = new Pelanggan();
+        plg.setVisible(true);
+
+        // TUTUP Menu
+        this.dispose();
     }//GEN-LAST:event_tombolpelangganActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -274,13 +278,13 @@ public class MainMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void laporanharianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanharianActionPerformed
         LaporanHarian lp = new LaporanHarian();
         lp.setVisible(true);
 
         // TUTUP LOGIN
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_laporanharianActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,12 +325,12 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton fnb;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton laporanharian;
     private javax.swing.JButton rombolruangan;
     private javax.swing.JButton tombolpelanggan;
     private javax.swing.JButton tomboltransaksi;

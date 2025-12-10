@@ -169,4 +169,31 @@ public class PelangganDao {
         
         return total;
     }
+    
+    public String insertPelangganAndGetId(String nama, String telepon) throws SQLException {
+    String id;
+    try (Connection conn = DatabaseConnection.getConnection()) {
+
+        // 1️⃣ Ambil id terakhir
+        String sqlGet = "SELECT IFNULL(MAX(CAST(SUBSTRING(id_pelanggan,2) AS UNSIGNED)),0) AS lastId FROM tabel_pelanggan";
+        PreparedStatement psGet = conn.prepareStatement(sqlGet);
+        ResultSet rs = psGet.executeQuery();
+        rs.next();
+        int next = rs.getInt("lastId") + 1; // naik 1 dari ID terakhir
+
+        // 2️⃣ Format ID jadi P001, P002, dst.
+        id = "P" + String.format("%02d", next);
+
+        // 3️⃣ Insert pelanggan baru
+        String sqlInsert = "INSERT INTO tabel_pelanggan (id_pelanggan, nama_pelanggan, no_telepon) VALUES (?, ?, ?)";
+        PreparedStatement psInsert = conn.prepareStatement(sqlInsert);
+        psInsert.setString(1, id);
+        psInsert.setString(2, nama);
+        psInsert.setString(3, telepon);
+        psInsert.executeUpdate();
+    }
+    return id;
+}
+
+
 }

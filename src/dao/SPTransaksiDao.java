@@ -3,9 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import util.DatabaseConnection;
 import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.Types;
 
 /**
  *
@@ -13,24 +14,44 @@ import java.sql.CallableStatement;
  */
 public class SPTransaksiDao {
 
-    private Connection conn;
+    public static class SpResult {
+        public String idTransaksi;
+        public String tokenWifi;
 
-    public SPTransaksiDao(Connection conn) {
-        this.conn = conn;
+        public SpResult(String idTransaksi, String tokenWifi) {
+            this.idTransaksi = idTransaksi;
+            this.tokenWifi = tokenWifi;
+        }
     }
 
-    // memanggil stored procedure untuk insert transaksi otomatis
-    public void insertTransaksiAuto(String idPelanggan, String idKasir, String idPembayaran) throws Exception {
-        String sql = "{CALL sp_insert_transaksi_auto(?, ?, ?)}";
-        CallableStatement cs = conn.prepareCall(sql);
+    // ===========================
+    //   CALL sp_insert_transaksi_auto
+    // ===========================
+    public SpResult insertTransaksi(String idPelanggan, String idKasir, String idPembayaran) throws Exception {
 
-        cs.setString(1, idPelanggan);
-        cs.setString(2, idKasir);
-        cs.setString(3, idPembayaran);
+        String sql = "{CALL sp_insert_transaksi_auto(?, ?, ?, ?, ?)}";
 
-        cs.execute();
-        cs.close();
+        try (Connection conn = DatabaseConnection.getConnection();
+             CallableStatement cs = conn.prepareCall(sql)) {
+
+            // IN parameter
+            cs.setString(1, idPelanggan);
+            cs.setString(2, idKasir);
+            cs.setString(3, idPembayaran);
+
+            // OUT parameter
+            cs.registerOutParameter(4, Types.VARCHAR);  // o_id_transaksi
+            cs.registerOutParameter(5, Types.VARCHAR);  // o_token_wifi
+
+            cs.execute();
+
+            String idTransaksi = cs.getString(4);
+            String tokenWifi   = cs.getString(5);
+
+            return new SpResult(idTransaksi, tokenWifi);
+        }
     }
 }
+
 
 

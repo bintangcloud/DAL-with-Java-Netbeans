@@ -174,6 +174,19 @@ public class TransaksiFnbDao {
 
         return result;
     }
+
+     public void insert(String idTransaksi, String idItem, int qty) throws SQLException {
+        String sql = "INSERT INTO transaksi_fnb (id_transaksi, id_fnb, qty) VALUES (?, ?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, idTransaksi);
+            ps.setString(2, idItem);
+            ps.setInt(3, qty);
+
+            ps.executeUpdate();
+        }
+    }
 }
 
 

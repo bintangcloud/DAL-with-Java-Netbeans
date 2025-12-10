@@ -18,7 +18,6 @@ public class TransaksiRuanganDao {
 
     // constructor default (non-UoW)
     public TransaksiRuanganDao() {
-        this.conn = DatabaseConnection.getConnection();
     }
 
     // constructor untuk UnitOfWork
@@ -96,4 +95,23 @@ public class TransaksiRuanganDao {
             return stmt.executeUpdate() > 0;
         }
     }
+    
+    // INSERT versi sederhana (tanpa membuat object model)
+public void insert(String idTransaksi, String idRuangan, Time waktuMulai, Time waktuSelesai) throws SQLException {
+
+    String sql = "INSERT INTO tabel_transaksi_ruangan (id_transaksi, id_ruangan, waktu_mulai, waktu_selesai) "
+               + "VALUES (?, ?, ?, ?)";
+
+    try (Connection c = (conn != null ? conn : DatabaseConnection.getConnection());
+         PreparedStatement ps = c.prepareStatement(sql)) {
+
+        ps.setString(1, idTransaksi);
+        ps.setString(2, idRuangan);
+        ps.setTime(3, waktuMulai);
+        ps.setTime(4, waktuSelesai);
+
+        ps.executeUpdate();
+    }
+}
+
 }
