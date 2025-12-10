@@ -98,6 +98,11 @@ public class MainMenu extends javax.swing.JFrame {
         jButton5.setText("Laporan Harian");
         jButton5.setBorderPainted(false);
         jButton5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton5);
         jButton5.setBounds(280, 380, 234, 80);
 
@@ -268,6 +273,14 @@ public class MainMenu extends javax.swing.JFrame {
         // TUTUP LOGIN
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        LaporanHarian lp = new LaporanHarian();
+        lp.setVisible(true);
+
+        // TUTUP LOGIN
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
