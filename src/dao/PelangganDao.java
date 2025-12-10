@@ -14,8 +14,7 @@ import model.Pelanggan;
  */
 public class PelangganDao {
 
-    public PelangganDao(Connection connection) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+    public PelangganDao() {
     }
     // INSERT
     public boolean insert(Pelanggan pelanggan) {
