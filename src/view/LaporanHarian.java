@@ -4,6 +4,12 @@
  */
 package view;
 
+import dao.VWLaporanHarianDao;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import util.DatabaseConnection;
+import java.sql.Connection;
 /**
  *
  * @author binta
@@ -30,12 +36,12 @@ public class LaporanHarian extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabellaporan = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         search = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        tanggalfilter = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -52,9 +58,9 @@ public class LaporanHarian extends javax.swing.JFrame {
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabellaporan.setBackground(new java.awt.Color(255, 255, 255));
+        tabellaporan.setForeground(new java.awt.Color(0, 0, 0));
+        tabellaporan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,8 +71,8 @@ public class LaporanHarian extends javax.swing.JFrame {
                 "tanggal", "penjualan_ruangan", "penjualan_fnb", "total_penjualan"
             }
         ));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTable1);
+        tabellaporan.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tabellaporan);
 
         jScrollPane2.setViewportView(jScrollPane1);
 
@@ -104,7 +110,7 @@ public class LaporanHarian extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 180, -1));
+        jPanel2.add(tanggalfilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 180, -1));
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/WhatsApp Image 2025-12-09 at 21.41.13_85d3c52b.jpg"))); // NOI18N
@@ -124,7 +130,46 @@ public class LaporanHarian extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+private void loadLaporan(String tanggalFilter) {
+    try (Connection conn = DatabaseConnection.getConnection()) {
+        VWLaporanHarianDao dao = new VWLaporanHarianDao(conn);
+        List<String[]> list = dao.getLaporanHarian();
+
+        DefaultTableModel model = new DefaultTableModel(
+            new Object[]{"Tanggal", "Total Ruangan", "Total F&B", "Total Semua"}, 0
+        );
+
+        for (String[] row : list) {
+            if (tanggalFilter.isEmpty() || row[0].contains(tanggalFilter)) {
+                model.addRow(row);
+            }
+        }
+
+        tabellaporan.setModel(model);
+
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Gagal load laporan: " + ex.getMessage());
+    }
+}
+
+
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+
+    try {
+        java.util.Date date = tanggalfilter.getDate();
+        if (date == null) {
+            JOptionPane.showMessageDialog(this, "Pilih tanggal dulu!");
+            return;
+        }
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String tanggalStr = sdf.format(date);
+
+        loadLaporan(tanggalStr);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
     }//GEN-LAST:event_searchActionPerformed
 
@@ -173,7 +218,6 @@ public class LaporanHarian extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton8;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -182,7 +226,8 @@ public class LaporanHarian extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton search;
+    private javax.swing.JTable tabellaporan;
+    private com.toedter.calendar.JDateChooser tanggalfilter;
     // End of variables declaration//GEN-END:variables
 }
