@@ -64,7 +64,7 @@ public class Ruangan {
     }
 
     public void setHargaPerJam(String hargaString) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       this.hargaPerJam = new BigDecimal(hargaString);
     }
 
 }

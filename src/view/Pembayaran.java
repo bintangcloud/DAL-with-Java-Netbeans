@@ -84,7 +84,7 @@ public class Pembayaran extends javax.swing.JFrame {
         jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 147, -1, 173));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 191, 255));
+        jLabel9.setForeground(new java.awt.Color(255, 127, 0));
         jLabel9.setText("DATA METODE PEMBAYARAN");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
@@ -97,7 +97,7 @@ public class Pembayaran extends javax.swing.JFrame {
         });
         jPanel3.add(tempatsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 177, -1));
 
-        search.setBackground(new java.awt.Color(0, 191, 255));
+        search.setBackground(new java.awt.Color(255, 127, 0));
         search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         search.setForeground(new java.awt.Color(255, 255, 255));
         search.setText("Search");
@@ -207,7 +207,7 @@ public class Pembayaran extends javax.swing.JFrame {
         });
         jPanel3.add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, -1, -1));
 
-        view.setBackground(new java.awt.Color(0, 191, 255));
+        view.setBackground(new java.awt.Color(255, 127, 0));
         view.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         view.setForeground(new java.awt.Color(255, 255, 255));
         view.setText("View");

@@ -84,7 +84,7 @@ public class Pelanggan extends javax.swing.JFrame {
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 124, 463, 185));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 127, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 215, 0));
         jLabel2.setText("DATA PELANGGAN");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
@@ -97,7 +97,7 @@ public class Pelanggan extends javax.swing.JFrame {
         });
         jPanel2.add(tempatsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 60, 177, -1));
 
-        search.setBackground(new java.awt.Color(255, 127, 0));
+        search.setBackground(new java.awt.Color(255, 215, 0));
         search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         search.setForeground(new java.awt.Color(255, 255, 255));
         search.setText("Search");
@@ -220,7 +220,7 @@ public class Pelanggan extends javax.swing.JFrame {
         });
         jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 496, -1, -1));
 
-        view.setBackground(new java.awt.Color(255, 127, 0));
+        view.setBackground(new java.awt.Color(255, 215, 0));
         view.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         view.setForeground(new java.awt.Color(255, 255, 255));
         view.setText("View");

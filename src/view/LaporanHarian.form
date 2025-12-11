@@ -114,11 +114,14 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="d7" red="ff" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="7f" red="ff" type="rgb"/>
+              <Color blue="0" green="d7" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="LAPORAN PENJUALAN HARIAN"/>
           </Properties>
@@ -131,7 +134,7 @@
         <Component class="javax.swing.JButton" name="search">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="7f" red="ff" type="rgb"/>
+              <Color blue="0" green="d7" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>

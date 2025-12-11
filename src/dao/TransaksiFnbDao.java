@@ -17,11 +17,6 @@ public class TransaksiFnbDao {
 
     private Connection conn;
 
-    // constructor default (tanpa UnitOfWork)
-    public TransaksiFnbDao() {
-        this.conn = DatabaseConnection.getConnection();
-    }
-
     // constructor untuk UnitOfWork
     public TransaksiFnbDao(Connection conn) {
         this.conn = conn;
@@ -176,9 +171,8 @@ public class TransaksiFnbDao {
     }
 
      public void insert(String idTransaksi, String idItem, int qty) throws SQLException {
-        String sql = "INSERT INTO transaksi_fnb (id_transaksi, id_fnb, qty) VALUES (?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+        String sql = "INSERT INTO tabel_transaksi_fnb (id_transaksi, id_item, kuantitas) VALUES (?, ?, ?)";
+        try (PreparedStatement ps = conn.prepareStatement(sql)){
 
             ps.setString(1, idTransaksi);
             ps.setString(2, idItem);

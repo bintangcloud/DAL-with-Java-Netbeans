@@ -156,7 +156,7 @@ public class Vendor extends javax.swing.JFrame {
         tambah.setBackground(new java.awt.Color(76, 175, 80));
         tambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tambah.setForeground(new java.awt.Color(255, 255, 255));
-        tambah.setText("Tambah");
+        tambah.setText("Insert");
         tambah.setBorderPainted(false);
         tambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,10 +266,10 @@ public class Vendor extends javax.swing.JFrame {
         vendorBaru.setIdVendor(idVendor);
         vendorBaru.setNamaVendor(namaVendor);
 
-        dao.FnbDao dao = new dao.FnbDao();
+        dao.VendorDao dao = new dao.VendorDao();
         
         // 3. Panggil method UPDATE
-        boolean sukses = dao.update(vendorUpdate);
+        boolean sukses = dao.update(vendorBaru);
 
         if (sukses) {
             javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Diupdate!");
@@ -305,7 +305,7 @@ public class Vendor extends javax.swing.JFrame {
             javax.swing.JOptionPane.YES_NO_OPTION);
 
     if (confirm == javax.swing.JOptionPane.YES_OPTION) {
-        dao.FnbDao dao = new dao.FnbDao();
+        dao.VendorDao dao = new dao.VendorDao();
         
         // 3. Panggil method DELETE
         boolean sukses = dao.delete(idVendor);

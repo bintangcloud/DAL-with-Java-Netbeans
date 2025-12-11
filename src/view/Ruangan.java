@@ -89,7 +89,7 @@ public class Ruangan extends javax.swing.JFrame {
         jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 147, -1, 173));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 191, 255));
+        jLabel9.setForeground(new java.awt.Color(76, 175, 80));
         jLabel9.setText("DATA RUANGAN");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
@@ -102,7 +102,7 @@ public class Ruangan extends javax.swing.JFrame {
         });
         jPanel3.add(tempatsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 72, 177, -1));
 
-        search.setBackground(new java.awt.Color(0, 191, 255));
+        search.setBackground(new java.awt.Color(76, 175, 80));
         search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         search.setForeground(new java.awt.Color(255, 255, 255));
         search.setText("Search");
@@ -212,7 +212,7 @@ public class Ruangan extends javax.swing.JFrame {
         });
         jPanel3.add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
 
-        view.setBackground(new java.awt.Color(0, 191, 255));
+        view.setBackground(new java.awt.Color(76, 175, 80));
         view.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         view.setForeground(new java.awt.Color(255, 255, 255));
         view.setText("View");
@@ -355,7 +355,7 @@ String keyword = tempatsearch.getText();
         model.Ruangan ruang = new model.Ruangan();
         ruang.setIdRuangan(idRuangan);
         ruang.setNamaRuangan(namaRuangan);
-        ruang.setHargaPerJam(hargaPerJam);
+        ruang.setHargaPerJam(harga);
 
         dao.RuanganDao dao = new dao.RuanganDao();
         
@@ -419,6 +419,7 @@ String keyword = tempatsearch.getText();
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         tempatid.setText("");
         tempatnama.setText("");
+        tempatharga.setText("");
 
         // Opsional: Kembalikan tabel ke posisi default (load semua data)
         tampilkanData();
@@ -458,6 +459,7 @@ String keyword = tempatsearch.getText();
         Object[] baris = {
             f.getIdRuangan(),
             f.getNamaRuangan(),
+            f.getHargaPerJam()
             // Tambahkan nama vendor jika ada di model
         };
         model.addRow(baris);

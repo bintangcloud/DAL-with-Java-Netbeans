@@ -9,13 +9,14 @@ import java.sql.SQLException;
  *
  * @author binta
  */
-public class UnitOfWork {
-
+public class UnitOfWork implements AutoCloseable {
     private Connection conn;
+    private boolean transactionActive = false;
 
     public UnitOfWork() throws SQLException {
         conn = DatabaseConnection.getConnection();
-        conn.setAutoCommit(false);  // MULAI TRANSAKSI
+        conn.setAutoCommit(false);  // Mulai transaksi
+        transactionActive = true;
     }
 
     public Connection getConnection() {
@@ -23,13 +24,41 @@ public class UnitOfWork {
     }
 
     public void commit() throws SQLException {
-        conn.commit();
-        conn.setAutoCommit(true);
+        if (transactionActive) {
+            conn.commit();
+            conn.setAutoCommit(true);
+            transactionActive = false;
+        }
     }
 
-    public void rollback() throws SQLException {
-        conn.rollback();
-        conn.setAutoCommit(true);
+    public void rollback() {
+        try {
+            if (transactionActive && conn != null && !conn.isClosed()) {
+                conn.rollback();
+                conn.setAutoCommit(true);
+                transactionActive = false;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error saat rollback: " + e.getMessage());
+        }
+    }
+    
+    // Pastikan connection ditutup
+    public void close() {
+        try {
+            if (conn != null && !conn.isClosed()) {
+                if (transactionActive) {
+                    rollback(); // Auto rollback jika belum commit
+                }
+                conn.close();
+            }
+        } catch (SQLException e) {
+            System.err.println("Error closing connection: " + e.getMessage());
+        }
+    }
+    
+    // Helper method untuk try-with-resources
+    public boolean isActive() {
+        return transactionActive;
     }
 }
-

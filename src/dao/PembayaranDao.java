@@ -15,12 +15,7 @@ import java.util.List;
  */
 public class PembayaranDao {
 
-    public PembayaranDao(Connection connection) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
     public PembayaranDao() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     // INSERT
     public boolean insert(Pembayaran pembayaran) {
@@ -123,8 +118,30 @@ public class PembayaranDao {
             return false;
         }
     }
-
+     // SEARCH BY NAME
     public List<Pembayaran> searchByName(String keyword) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Pembayaran> pembayaranList = new ArrayList<>();
+        String sql = "SELECT * FROM tabel_pembayaran WHERE jenis_pembayaran LIKE ? ORDER BY jenis_pembayaran";
+        
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, "%" + keyword + "%");
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                Pembayaran pmb = new Pembayaran();
+                pmb.setIdPembayaran(rs.getString("id_pembayaran"));
+                pmb.setJenisPembayaran(rs.getString("jenis_pembayaran"));
+                pembayaranList.add(pmb);
+            }
+            
+            rs.close();
+            
+        } catch (SQLException e) {
+            System.err.println("Error searching F&B: " + e.getMessage());
+        }
+        
+        return pembayaranList;
     }
 }

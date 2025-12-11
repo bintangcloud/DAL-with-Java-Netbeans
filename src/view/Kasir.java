@@ -4,6 +4,8 @@
  */
 package view;
 
+import dao.KasirDao;
+
 /**
  *
  * @author trila
@@ -269,11 +271,83 @@ public class Kasir extends javax.swing.JFrame {
     }//GEN-LAST:event_tempatidActionPerformed
 
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
+        // 1. Ambil data dari Inputan (Text Field)
+        String idKasir = tempatid.getText();
+        String namaKasir = tempatnama.getText();
 
+    // 2. Validasi sederhana (Cek kosong atau tidak)
+    if (idKasir.isEmpty() || namaKasir.isEmpty() ) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Mohon lengkapi semua data!");
+        return; // Berhenti jika data kosong
+    }
+
+    try {
+        model.Kasir ksr = new model.Kasir();
+        ksr.setIdKasir(idKasir);
+        ksr.setNamaKasir(namaKasir);
+        
+        //Panggil DAO untuk Insert
+        KasirDao dao = new KasirDao(); // Pastikan constructor FnbDao sudah diperbaiki (lihat poin 1)
+        boolean sukses = dao.insert(ksr);
+
+        // 6. Cek Hasil dan Beri Pesan ke User
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Disimpan!");
+            
+            tampilkanData();
+            
+            // Opsi: Kosongkan text field setelah simpan
+            tempatid.setText("");
+            tempatnama.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Menyimpan Data.");
+        }
+
+    } catch (NumberFormatException e) {
+        // Error handling jika user memasukkan huruf di kolom harga
+        javax.swing.JOptionPane.showMessageDialog(this, "Harga harus berupa angka!");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Terjadi Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_tambahActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        String idKasir = tempatid.getText();
+        String namaKasir = tempatnama.getText();
 
+    // 2. Validasi (ID tidak boleh kosong karena itu kuncinya)
+    if (idKasir.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Pilih data yang akan diedit atau isi ID!");
+        return;
+    }
+
+    try {
+
+        model.Kasir kas = new model.Kasir();
+        kas.setIdKasir(idKasir);
+        kas.setNamaKasir(namaKasir);
+
+        dao.KasirDao dao = new dao.KasirDao();
+        
+        // 3. Panggil method UPDATE
+        boolean sukses = dao.update(kas);
+
+        if (sukses) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Data Berhasil Diupdate!");
+            tampilkanData(); // Refresh tabel
+            
+            // Bersihkan form
+            tempatid.setText("");
+            tempatnama.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Mengupdate Data.");
+        }
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Harga harus angka!");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_updateActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
@@ -292,7 +366,7 @@ public class Kasir extends javax.swing.JFrame {
             javax.swing.JOptionPane.YES_NO_OPTION);
 
     if (confirm == javax.swing.JOptionPane.YES_OPTION) {
-        dao.FnbDao dao = new dao.FnbDao();
+        dao.KasirDao dao = new dao.KasirDao();
         
         // 3. Panggil method DELETE
         boolean sukses = dao.delete(idKasir);
@@ -351,7 +425,7 @@ public class Kasir extends javax.swing.JFrame {
     }//GEN-LAST:event_kembaliActionPerformed
 
     private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
-        //tampilkanData();
+       tampilkanData();
     }//GEN-LAST:event_viewActionPerformed
     
     /**

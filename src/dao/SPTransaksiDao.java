@@ -14,6 +14,12 @@ import java.sql.Types;
  */
 public class SPTransaksiDao {
 
+    private Connection conn;
+
+    public SPTransaksiDao(Connection connection) {
+        this.conn = connection;
+    }
+
     public static class SpResult {
         public String idTransaksi;
         public String tokenWifi;
@@ -24,31 +30,25 @@ public class SPTransaksiDao {
         }
     }
 
-    // ===========================
-    //   CALL sp_insert_transaksi_auto
-    // ===========================
     public SpResult insertTransaksi(String idPelanggan, String idKasir, String idPembayaran) throws Exception {
 
         String sql = "{CALL sp_insert_transaksi_auto(?, ?, ?, ?, ?)}";
 
-        try (Connection conn = DatabaseConnection.getConnection();
-             CallableStatement cs = conn.prepareCall(sql)) {
+        try (CallableStatement cs = conn.prepareCall(sql)) {
 
-            // IN parameter
             cs.setString(1, idPelanggan);
             cs.setString(2, idKasir);
             cs.setString(3, idPembayaran);
 
-            // OUT parameter
-            cs.registerOutParameter(4, Types.VARCHAR);  // o_id_transaksi
-            cs.registerOutParameter(5, Types.VARCHAR);  // o_token_wifi
+            cs.registerOutParameter(4, Types.VARCHAR);
+            cs.registerOutParameter(5, Types.VARCHAR);
 
             cs.execute();
 
-            String idTransaksi = cs.getString(4);
-            String tokenWifi   = cs.getString(5);
-
-            return new SpResult(idTransaksi, tokenWifi);
+            return new SpResult(
+                cs.getString(4),
+                cs.getString(5)
+            );
         }
     }
 }

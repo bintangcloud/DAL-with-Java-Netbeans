@@ -102,8 +102,7 @@ public void insert(String idTransaksi, String idRuangan, Time waktuMulai, Time w
     String sql = "INSERT INTO tabel_transaksi_ruangan (id_transaksi, id_ruangan, waktu_mulai, waktu_selesai) "
                + "VALUES (?, ?, ?, ?)";
 
-    try (Connection c = (conn != null ? conn : DatabaseConnection.getConnection());
-         PreparedStatement ps = c.prepareStatement(sql)) {
+    try (PreparedStatement ps = conn.prepareStatement(sql)){
 
         ps.setString(1, idTransaksi);
         ps.setString(2, idRuangan);

@@ -78,12 +78,13 @@ public class LaporanHarian extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 463, 185));
 
+        jLabel2.setBackground(new java.awt.Color(255, 215, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 127, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 215, 0));
         jLabel2.setText("LAPORAN PENJUALAN HARIAN");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        search.setBackground(new java.awt.Color(255, 127, 0));
+        search.setBackground(new java.awt.Color(255, 215, 0));
         search.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         search.setForeground(new java.awt.Color(255, 255, 255));
         search.setText("Tampilkan");
