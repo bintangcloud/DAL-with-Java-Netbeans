@@ -854,7 +854,7 @@ private void loadComboPembayaran() {
     }//GEN-LAST:event_view2ActionPerformed
 
     private void search3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search3ActionPerformed
-        String keyword = tempatsearch.getText();
+        String keyword = tempatsearch1.getText();
 
         dao.RuanganDao dao = new dao.RuanganDao();
 
@@ -872,7 +872,7 @@ private void loadComboPembayaran() {
                 Object[] baris = {
                     f.getIdRuangan(),
                     f.getNamaRuangan(),
-                    f.getHargaPerJam()
+                    f.getHargaPerJam(),
                 };
                 model.addRow(baris);
             }
@@ -1118,10 +1118,20 @@ private void loadComboPembayaran() {
             double total = fndao.hitungTotalBelanja(idTransaksi);
             tpttotal.setText("Rp " + total);
             
+            double bayar = 0;
+            double kembali = 0;
+
+            try {
+                bayar = Double.parseDouble(tempatbayar.getText().trim());
+                kembali = bayar - total;
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Nominal bayar tidak valid");
+}
+            
             // --- GENERATE STRUK ---
             StringBuilder sb = new StringBuilder();
 
-            sb.append("========= STRUK DAGO SPACE =========\n");
+            sb.append("========= STRUK DAGO CREATIVE HUB & CO-WORKING SPACE =========\n");
             sb.append("ID Transaksi : ").append(idTransaksi).append("\n");
             sb.append("Kasir        : ").append(kasircom.getSelectedItem()).append("\n");
             sb.append("Pelanggan    : ").append(namaPelanggan).append("\n");
@@ -1148,7 +1158,9 @@ private void loadComboPembayaran() {
                   .append("| \n");
             }
 
-            sb.append("\nTotal Bayar : Rp ").append(total).append("\n");
+            sb.append("\nTotal : Rp ").append(total).append("\n");
+            sb.append("Bayar        : Rp ").append(bayar).append("\n");
+            sb.append("Kembali      : Rp ").append(kembali).append("\n");
             sb.append("=====================================");
 
             String STRUK_FINAL = sb.toString();
