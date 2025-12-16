@@ -68,7 +68,7 @@ public class LaporanHarian extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "tanggal", "penjualan_ruangan", "penjualan_fnb", "total_penjualan"
+                "Tanggal", "Pendapatan Ruangan", "Pendapatan FnB", "Total"
             }
         ));
         tabellaporan.setSelectionBackground(new java.awt.Color(255, 255, 255));
@@ -138,7 +138,7 @@ private void loadLaporan(String tanggalFilter) {
         List<String[]> list = dao.getLaporanHarian();
 
         DefaultTableModel model = new DefaultTableModel(
-            new Object[]{"Tanggal", "Total Ruangan", "Total F&B", "Total Semua"}, 0
+            new Object[]{"Tanggal", "Pendapatan Ruangan", "Pendapatan F&B", "Total"}, 0
         );
 
         for (String[] row : list) {

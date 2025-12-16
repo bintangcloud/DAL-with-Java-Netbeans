@@ -90,17 +90,17 @@ private void initRekapTable() {
         jLabel13 = new javax.swing.JLabel();
         tptqty = new javax.swing.JTextField();
         tempatsearch = new javax.swing.JTextField();
-        search1 = new javax.swing.JButton();
-        view1 = new javax.swing.JButton();
+        searchfnb = new javax.swing.JButton();
+        viewfnb = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabelruangan = new javax.swing.JTable();
-        search3 = new javax.swing.JButton();
-        view3 = new javax.swing.JButton();
+        searchruangan = new javax.swing.JButton();
+        viewruangan = new javax.swing.JButton();
         tempatsearch1 = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
+        addRuangan = new javax.swing.JButton();
         addfnb = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        deleterekapan = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -112,7 +112,7 @@ private void initRekapTable() {
         jLabel18 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         kembalian = new javax.swing.JTextArea();
-        hitungsusuk = new javax.swing.JButton();
+        hitungKembalian = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         rekapfnb = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -251,25 +251,25 @@ private void initRekapTable() {
             }
         });
 
-        search1.setBackground(new java.awt.Color(255, 127, 0));
-        search1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        search1.setForeground(new java.awt.Color(255, 255, 255));
-        search1.setText("Search");
-        search1.setBorderPainted(false);
-        search1.addActionListener(new java.awt.event.ActionListener() {
+        searchfnb.setBackground(new java.awt.Color(255, 127, 0));
+        searchfnb.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        searchfnb.setForeground(new java.awt.Color(255, 255, 255));
+        searchfnb.setText("Search");
+        searchfnb.setBorderPainted(false);
+        searchfnb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                search1ActionPerformed(evt);
+                searchfnbActionPerformed(evt);
             }
         });
 
-        view1.setBackground(new java.awt.Color(255, 127, 0));
-        view1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        view1.setForeground(new java.awt.Color(255, 255, 255));
-        view1.setText("View");
-        view1.setBorderPainted(false);
-        view1.addActionListener(new java.awt.event.ActionListener() {
+        viewfnb.setBackground(new java.awt.Color(255, 127, 0));
+        viewfnb.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        viewfnb.setForeground(new java.awt.Color(255, 255, 255));
+        viewfnb.setText("View");
+        viewfnb.setBorderPainted(false);
+        viewfnb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view1ActionPerformed(evt);
+                viewfnbActionPerformed(evt);
             }
         });
 
@@ -289,25 +289,25 @@ private void initRekapTable() {
         tabelruangan.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane4.setViewportView(tabelruangan);
 
-        search3.setBackground(new java.awt.Color(0, 191, 255));
-        search3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        search3.setForeground(new java.awt.Color(255, 255, 255));
-        search3.setText("Search");
-        search3.setBorderPainted(false);
-        search3.addActionListener(new java.awt.event.ActionListener() {
+        searchruangan.setBackground(new java.awt.Color(0, 191, 255));
+        searchruangan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        searchruangan.setForeground(new java.awt.Color(255, 255, 255));
+        searchruangan.setText("Search");
+        searchruangan.setBorderPainted(false);
+        searchruangan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                search3ActionPerformed(evt);
+                searchruanganActionPerformed(evt);
             }
         });
 
-        view3.setBackground(new java.awt.Color(0, 191, 255));
-        view3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        view3.setForeground(new java.awt.Color(255, 255, 255));
-        view3.setText("View");
-        view3.setBorderPainted(false);
-        view3.addActionListener(new java.awt.event.ActionListener() {
+        viewruangan.setBackground(new java.awt.Color(0, 191, 255));
+        viewruangan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        viewruangan.setForeground(new java.awt.Color(255, 255, 255));
+        viewruangan.setText("View");
+        viewruangan.setBorderPainted(false);
+        viewruangan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view3ActionPerformed(evt);
+                viewruanganActionPerformed(evt);
             }
         });
 
@@ -319,14 +319,14 @@ private void initRekapTable() {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 170, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Add");
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        addRuangan.setBackground(new java.awt.Color(0, 170, 0));
+        addRuangan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addRuangan.setForeground(new java.awt.Color(255, 255, 255));
+        addRuangan.setText("Add");
+        addRuangan.setBorderPainted(false);
+        addRuangan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addRuanganActionPerformed(evt);
             }
         });
 
@@ -341,14 +341,14 @@ private void initRekapTable() {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(255, 0, 0));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Delete");
-        jButton6.setBorderPainted(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        deleterekapan.setBackground(new java.awt.Color(255, 0, 0));
+        deleterekapan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        deleterekapan.setForeground(new java.awt.Color(255, 255, 255));
+        deleterekapan.setText("Delete");
+        deleterekapan.setBorderPainted(false);
+        deleterekapan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                deleterekapanActionPerformed(evt);
             }
         });
 
@@ -389,14 +389,14 @@ private void initRekapTable() {
         kembalian.setRows(5);
         jScrollPane3.setViewportView(kembalian);
 
-        hitungsusuk.setBackground(new java.awt.Color(153, 0, 0));
-        hitungsusuk.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        hitungsusuk.setForeground(new java.awt.Color(255, 255, 255));
-        hitungsusuk.setText("Hitung Kembali");
-        hitungsusuk.setBorderPainted(false);
-        hitungsusuk.addActionListener(new java.awt.event.ActionListener() {
+        hitungKembalian.setBackground(new java.awt.Color(153, 0, 0));
+        hitungKembalian.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        hitungKembalian.setForeground(new java.awt.Color(255, 255, 255));
+        hitungKembalian.setText("Hitung Kembalian");
+        hitungKembalian.setBorderPainted(false);
+        hitungKembalian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hitungsusukActionPerformed(evt);
+                hitungKembalianActionPerformed(evt);
             }
         });
 
@@ -514,17 +514,17 @@ private void initRekapTable() {
                                 .addGap(53, 53, 53)
                                 .addComponent(tempatsearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(search3)
+                                .addComponent(searchruangan)
                                 .addGap(6, 6, 6)
-                                .addComponent(view3)
+                                .addComponent(viewruangan)
                                 .addGap(54, 54, 54)
                                 .addComponent(jLabel12)
                                 .addGap(53, 53, 53)
                                 .addComponent(tempatsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
-                                .addComponent(search1)
+                                .addComponent(searchfnb)
                                 .addGap(6, 6, 6)
-                                .addComponent(view1))))
+                                .addComponent(viewfnb))))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 985, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -538,7 +538,7 @@ private void initRekapTable() {
                                     .addComponent(tempatbayar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(26, 26, 26)
-                                        .addComponent(hitungsusuk)))))
+                                        .addComponent(hitungKembalian)))))
                         .addGap(46, 46, 46)
                         .addComponent(jLabel15)
                         .addGap(6, 6, 6)
@@ -564,7 +564,7 @@ private void initRekapTable() {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(wselesai, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(109, 109, 109)
-                                                .addComponent(jButton2)))
+                                                .addComponent(addRuangan)))
                                         .addGap(37, 37, 37))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(8, 8, 8)
@@ -584,7 +584,7 @@ private void initRekapTable() {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jButton6)))))
+                                            .addComponent(deleterekapan)))))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 985, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(7, 7, 7))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -643,14 +643,14 @@ private void initRekapTable() {
                         .addGap(3, 3, 3)
                         .addComponent(jLabel9))
                     .addComponent(tempatsearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search3)
-                    .addComponent(view3)
+                    .addComponent(searchruangan)
+                    .addComponent(viewruangan)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(jLabel12))
                     .addComponent(tempatsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search1)
-                    .addComponent(view1))
+                    .addComponent(searchfnb)
+                    .addComponent(viewfnb))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -667,7 +667,7 @@ private void initRekapTable() {
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
                             .addComponent(jLabel13)))
-                    .addComponent(jButton2))
+                    .addComponent(addRuangan))
                 .addGap(8, 8, 8)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -676,7 +676,7 @@ private void initRekapTable() {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6))
+                    .addComponent(deleterekapan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -690,7 +690,7 @@ private void initRekapTable() {
                             .addComponent(jLabel17)
                             .addComponent(tempatbayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hitungsusuk))
+                        .addComponent(hitungKembalian))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jLabel15))
@@ -791,7 +791,7 @@ private void loadComboPembayaran() {
         // TODO add your handling code here:
     }//GEN-LAST:event_tempatsearchActionPerformed
 
-    private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
+    private void searchfnbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchfnbActionPerformed
 
         String keyword = tempatsearch.getText();
 
@@ -817,11 +817,11 @@ private void loadComboPembayaran() {
                 model.addRow(baris);
             }
         }
-    }//GEN-LAST:event_search1ActionPerformed
+    }//GEN-LAST:event_searchfnbActionPerformed
 
-    private void view1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view1ActionPerformed
+    private void viewfnbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewfnbActionPerformed
         tampilkanDataFnb();
-    }//GEN-LAST:event_view1ActionPerformed
+    }//GEN-LAST:event_viewfnbActionPerformed
 
     private void search2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search2ActionPerformed
         String keyword = tempatsearch.getText();
@@ -853,7 +853,7 @@ private void loadComboPembayaran() {
         tampilkanData();
     }//GEN-LAST:event_view2ActionPerformed
 
-    private void search3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search3ActionPerformed
+    private void searchruanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchruanganActionPerformed
         String keyword = tempatsearch1.getText();
 
         dao.RuanganDao dao = new dao.RuanganDao();
@@ -877,17 +877,17 @@ private void loadComboPembayaran() {
                 model.addRow(baris);
             }
         }
-    }//GEN-LAST:event_search3ActionPerformed
+    }//GEN-LAST:event_searchruanganActionPerformed
 
-    private void view3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3ActionPerformed
+    private void viewruanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewruanganActionPerformed
         tampilkanData();
-    }//GEN-LAST:event_view3ActionPerformed
+    }//GEN-LAST:event_viewruanganActionPerformed
 
     private void tempatsearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempatsearch1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tempatsearch1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void addRuanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRuanganActionPerformed
         int sel = tabelruangan.getSelectedRow();
         if (sel < 0) { 
             JOptionPane.showMessageDialog(this,"Pilih ruangan dulu"); 
@@ -945,45 +945,45 @@ private void loadComboPembayaran() {
         }
 
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_addRuanganActionPerformed
 
     private void addfnbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addfnbActionPerformed
                                
-    int sel = tabelfnb.getSelectedRow();
-    if (sel < 0) { 
-        JOptionPane.showMessageDialog(this,"Pilih item F&B dulu"); 
-        return; 
-    }
-    String idItem = tabelfnb.getValueAt(sel, 0).toString();
-    String namaItem = tabelfnb.getValueAt(sel, 1).toString();
-    double harga = Double.parseDouble(tabelfnb.getValueAt(sel, 2).toString());
+        int sel = tabelfnb.getSelectedRow();
+        if (sel < 0) { 
+            JOptionPane.showMessageDialog(this,"Pilih item F&B dulu"); 
+            return; 
+        }
+        String idItem = tabelfnb.getValueAt(sel, 0).toString();
+        String namaItem = tabelfnb.getValueAt(sel, 1).toString();
+        double harga = Double.parseDouble(tabelfnb.getValueAt(sel, 2).toString());
 
-    // ambil qty
-    int qty;
-    try {
-        qty = Integer.parseInt(tptqty.getText().trim());
-        if (qty <= 0) throw new NumberFormatException();
-    } catch (Exception e) { 
-        JOptionPane.showMessageDialog(this,"Masukkan qty valid"); 
-        return; 
-    }
+        // ambil qty
+        int qty;
+        try {
+            qty = Integer.parseInt(tptqty.getText().trim());
+            if (qty <= 0) throw new NumberFormatException();
+        } catch (Exception e) { 
+            JOptionPane.showMessageDialog(this,"Masukkan qty valid"); 
+            return; 
+        }
 
-    // hitung subtotal
-    double subtotal = harga * qty;
+        // hitung subtotal
+        double subtotal = harga * qty;
 
-    // Tambahkan ke tabel rekap (nama, qty, subtotal)
-    modelRekapFnb.addRow(new Object[]{
-        idItem,
-        namaItem,
-        qty,
-        subtotal
-    });
+        // Tambahkan ke tabel rekap (nama, qty, subtotal)
+        modelRekapFnb.addRow(new Object[]{
+            idItem,
+            namaItem,
+            qty,
+            subtotal
+        });
 
-    updateTotal();
+        updateTotal();
 
     }//GEN-LAST:event_addfnbActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void deleterekapanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleterekapanActionPerformed
 
     int selR = rekapruangan.getSelectedRow();
     int selF = rekapfnb.getSelectedRow();
@@ -996,9 +996,9 @@ private void loadComboPembayaran() {
         return;
     }
     updateTotal();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_deleterekapanActionPerformed
 
-    private void hitungsusukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungsusukActionPerformed
+    private void hitungKembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungKembalianActionPerformed
                                      
     try {
         double bayar = Double.parseDouble(tempatbayar.getText().trim());
@@ -1010,7 +1010,7 @@ private void loadComboPembayaran() {
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Masukkan nominal bayar yang valid");
 }
-    }//GEN-LAST:event_hitungsusukActionPerformed
+    }//GEN-LAST:event_hitungKembalianActionPerformed
 
     private void resetForm() {
     // 1. Kosongkan Text Field
@@ -1039,9 +1039,7 @@ private void loadComboPembayaran() {
     private void prosesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prosesActionPerformed
                                         
     try {
-        // ==========================================
-        // BAGIAN 1: VALIDASI & INPUT DASAR (GAK DIUBAH)
-        // ==========================================
+        // BAGIAN 1: VALIDASI & INPUT DASAR
         String namaPelanggan = tnama.getText().trim();
         String telp = ttelp.getText().trim();
         
@@ -1055,9 +1053,7 @@ private void loadComboPembayaran() {
         String idPembayaran = pmbyrn.getSelectedItem().toString().split(" - ")[0];
 
 
-        // ==========================================
         // BAGIAN 2: SIAPKAN DATA (PACKING KE DALAM LIST)
-        // ==========================================
         // Disini kita cuma masukin data tabel ke List,
         // INSERT-nya nanti dilakukan otomatis oleh Service.
         
@@ -1087,9 +1083,7 @@ private void loadComboPembayaran() {
         }
 
 
-        // ==========================================
         // BAGIAN 3: PANGGIL SERVICE (EKSEKUSI INSERT)
-        // ==========================================
         service.TransaksiService service = new service.TransaksiService();
         
         // Service akan: Panggil SP -> Insert List Ruangan -> Insert List FnB -> Commit
@@ -1102,9 +1096,7 @@ private void loadComboPembayaran() {
         listFnb
         );
         
-        // ==========================================
         // BAGIAN 4: TAMPILKAN HASIL & STRUK
-        // ==========================================
         if (res != null) {
             // Kalau berhasil, ambil ID & Token baru
             String idTransaksi = res.idTransaksi;
@@ -1280,10 +1272,10 @@ private void tampilkanDataFnb() {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addRuangan;
     private javax.swing.JButton addfnb;
-    private javax.swing.JButton hitungsusuk;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton deleterekapan;
+    private javax.swing.JButton hitungKembalian;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1321,9 +1313,9 @@ private void tampilkanDataFnb() {
     private javax.swing.JTable rekapfnb;
     private javax.swing.JTable rekapruangan;
     private javax.swing.JButton search;
-    private javax.swing.JButton search1;
     private javax.swing.JButton search2;
-    private javax.swing.JButton search3;
+    private javax.swing.JButton searchfnb;
+    private javax.swing.JButton searchruangan;
     private javax.swing.JTable tabelfnb;
     private javax.swing.JTable tabelruangan;
     private javax.swing.JTextField tempatbayar;
@@ -1337,9 +1329,9 @@ private void tampilkanDataFnb() {
     private javax.swing.JTextField ttelp;
     private com.toedter.calendar.JDateChooser ttgl;
     private javax.swing.JButton view;
-    private javax.swing.JButton view1;
     private javax.swing.JButton view2;
-    private javax.swing.JButton view3;
+    private javax.swing.JButton viewfnb;
+    private javax.swing.JButton viewruangan;
     private javax.swing.JTextField wmulai;
     private javax.swing.JTextField wselesai;
     // End of variables declaration//GEN-END:variables

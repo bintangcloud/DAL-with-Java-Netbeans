@@ -164,17 +164,17 @@
                                   <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
                                   <Component id="tempatsearch1" min="-2" pref="182" max="-2" attributes="0"/>
                                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                  <Component id="search3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="searchruangan" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="view3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="viewruangan" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="54" pref="54" max="-2" attributes="0"/>
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
                                   <Component id="tempatsearch" min="-2" pref="177" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="search1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="searchfnb" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="view1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="viewfnb" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -191,7 +191,7 @@
                                       <Component id="tempatbayar" min="-2" pref="168" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Component id="hitungsusuk" min="-2" max="-2" attributes="0"/>
+                                          <Component id="hitungKembalian" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -222,7 +222,7 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="wselesai" min="-2" pref="73" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="addRuangan" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -248,7 +248,7 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jScrollPane5" min="-2" pref="372" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="deleterekapan" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -326,15 +326,15 @@
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="tempatsearch1" min="-2" max="-2" attributes="0"/>
-                      <Component id="search3" min="-2" max="-2" attributes="0"/>
-                      <Component id="view3" min="-2" max="-2" attributes="0"/>
+                      <Component id="searchruangan" min="-2" max="-2" attributes="0"/>
+                      <Component id="viewruangan" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="tempatsearch" min="-2" max="-2" attributes="0"/>
-                      <Component id="search1" min="-2" max="-2" attributes="0"/>
-                      <Component id="view1" min="-2" max="-2" attributes="0"/>
+                      <Component id="searchfnb" min="-2" max="-2" attributes="0"/>
+                      <Component id="viewfnb" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -355,7 +355,7 @@
                               <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="addRuangan" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
@@ -365,7 +365,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jScrollPane6" min="-2" pref="77" max="-2" attributes="0"/>
                       <Component id="jScrollPane5" min="-2" pref="77" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="deleterekapan" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
@@ -381,7 +381,7 @@
                               <Component id="tempatbayar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="hitungsusuk" min="-2" max="-2" attributes="0"/>
+                          <Component id="hitungKembalian" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
@@ -619,7 +619,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tempatsearchActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="search1">
+        <Component class="javax.swing.JButton" name="searchfnb">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="7f" red="ff" type="rgb"/>
@@ -634,10 +634,10 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="search1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchfnbActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="view1">
+        <Component class="javax.swing.JButton" name="viewfnb">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="7f" red="ff" type="rgb"/>
@@ -652,7 +652,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewfnbActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
@@ -706,7 +706,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="search3">
+        <Component class="javax.swing.JButton" name="searchruangan">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="bf" red="0" type="rgb"/>
@@ -721,10 +721,10 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="search3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchruanganActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="view3">
+        <Component class="javax.swing.JButton" name="viewruangan">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="bf" red="0" type="rgb"/>
@@ -739,7 +739,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewruanganActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tempatsearch1">
@@ -757,7 +757,7 @@
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator2">
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="addRuangan">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="aa" red="0" type="rgb"/>
@@ -772,7 +772,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addRuanganActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="addfnb">
@@ -793,7 +793,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addfnbActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="deleterekapan">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -808,7 +808,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleterekapanActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
@@ -935,7 +935,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="hitungsusuk">
+        <Component class="javax.swing.JButton" name="hitungKembalian">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="99" type="rgb"/>
@@ -946,11 +946,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Hitung Kembali"/>
+            <Property name="text" type="java.lang.String" value="Hitung Kembalian"/>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hitungsusukActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hitungKembalianActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane5">
